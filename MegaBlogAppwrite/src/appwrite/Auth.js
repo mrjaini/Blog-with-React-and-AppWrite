@@ -11,9 +11,9 @@ export class AuthService{
         this.account= new Account(this.client);
     }
 
-    async createAccount({email , password , name}){
+    async createAccount({email , password}){
         try {
-            const userAccount = await this.account.create(ID.unique(), email , password , name);
+            const userAccount = await this.account.create(ID.unique(), email , password);
             if(userAccount){
                 this.login({email, password})
             }
@@ -32,6 +32,22 @@ export class AuthService{
             throw error;
         }
         
+    }
+
+    async getCurrent(){
+        try {
+            return await this.account.get();
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async logout(){
+        try {
+            return await this.account.deleteSessions();
+        } catch (error) {
+            throw error;
+        }
     }
 
 }
