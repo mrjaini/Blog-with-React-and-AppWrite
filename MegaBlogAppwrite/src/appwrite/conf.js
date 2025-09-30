@@ -43,7 +43,8 @@ export class Service{
                     title,
                     featuredImage,
                     content, 
-                    status, 
+                    status,
+                    userId, 
                 }
             )
         } catch (error) {
