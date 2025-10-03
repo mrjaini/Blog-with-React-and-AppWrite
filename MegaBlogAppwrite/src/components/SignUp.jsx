@@ -3,8 +3,8 @@ import {useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import {useForm} from 'react-hook-form'
 import authService from '../appwrite/Auth'
-import {Login as authLogin, login} from '../store/authSlice'
-import {Button , Input , Logo} from './index'
+import {login} from '../store/authSlice'
+import {Button, Input , Logo} from './index'
 function SignUp() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
