@@ -10,6 +10,8 @@ import Input from './Input'
 import SignUp from './SignUp'
 import RTE from './RTE'
 import AuthLayout from './AuthLayout'
+import PostForm from './post-form/PostForm'
+import Login from './Login'
 export default {
     Header,
     Footer,
@@ -23,4 +25,6 @@ export default {
     SignUp,
     RTE,
     AuthLayout,
+    PostForm,
+    Login,
 }
