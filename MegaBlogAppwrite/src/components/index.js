@@ -10,7 +10,7 @@ import Input from './Input'
 import SignUp from './SignUp'
 import RTE from './RTE'
 import AuthLayout from './AuthLayout'
-export {
+export default {
     Header,
     Footer,
     Container,
