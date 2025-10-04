@@ -7,16 +7,16 @@ import './App.css'
 
 function App() {
   const [loading , setLoading] = useState(true)
-
+  const dispatch = useDispatch()
   useEffect(() =>{
     authService.getCurrent()
     .then((userData) =>{
 
       if (userData) {
-        dispatch(login({userData}))
+        dispatch(login(userData))
       }
       else{
-        useDispatch(logout())
+        dispatch(logout())
       }
 
     })

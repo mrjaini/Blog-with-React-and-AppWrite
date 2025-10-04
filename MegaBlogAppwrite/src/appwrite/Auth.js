@@ -6,7 +6,7 @@ export class AuthService{
     account;
     constructor(){
         this.client
-            .setEndpoint(config.appUrl)
+            .setEndpoint("https://sfo.cloud.appwrite.io/v1")
             .setProject(config.projectId);
         this.account= new Account(this.client);
     }
@@ -15,7 +15,7 @@ export class AuthService{
         try {
             const userAccount = await this.account.create(ID.unique(), email , password);
             if(userAccount){
-                this.login({email, password})
+                return this.login({email, password})
             }
             else{
                 return userAccount;
@@ -27,20 +27,26 @@ export class AuthService{
 
     async login({email , password}) {
         try {
-            return await this.account.createEmailPasswordSession({email , password});
+            return await this.account.createEmailPasswordSession(email , password);
         } catch (error) {
             throw error;
         }
         
     }
 
-    async getCurrent(){
-        try {
-            return await this.account.get();
-        } catch (error) {
-            throw error;
-        }
+    async getCurrent() {
+    try {
+        const user = await this.account.get();
+        console.log("User:", user);
+        return user;
+    } catch (error) {
+        // yaha error throw mat karo, bas null return karo
+        console.log("No active session:", error.message);
+        return null;
     }
+}
+
+
 
     async logout(){
         try {
