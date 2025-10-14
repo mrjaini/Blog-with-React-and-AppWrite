@@ -14,7 +14,7 @@ export default function Footer() {
                             </div>
                             <div>
                                 <p className="text-sm text-gray-600">
-                                    &copy; Copyright 2023. All Rights Reserved by DevUI.
+                                    &copy; Copyright 2025. All Rights Reserved by DevUI .
                                 </p>
                             </div>
                         </div>
